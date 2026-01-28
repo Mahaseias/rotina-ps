@@ -147,3 +147,9 @@
   .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   .hint{ color:var(--muted); font-size:12px; line-height:1.4; margin:0; }
   
+
+  .item.running{
+    border-color: rgba(56,189,248,.45);
+    box-shadow: 0 0 0 1px rgba(56,189,248,.12) inset;
+  }
+  

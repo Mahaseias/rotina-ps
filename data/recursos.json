@@ -1,24 +1,49 @@
 [
-    {
-      "area": "Tech",
-      "tema": "SRE (fundamentos)",
-      "nome": "Google SRE Book (online)",
-      "metodo": "1 capítulo/semana + 1 resumo de postmortem.",
-      "link": "https://sre.google/books/"
-    },
-    {
-      "area": "Tech",
-      "tema": "Observabilidade",
-      "nome": "Prometheus Overview",
-      "metodo": "Ler + criar 3 queries PromQL.",
-      "link": "https://prometheus.io/docs/introduction/overview/"
-    },
-    {
-      "area": "Inglês",
-      "tema": "Pronúncia em contexto",
-      "nome": "YouGlish",
-      "metodo": "Buscar 10 termos/semana e repetir 10x.",
-      "link": "https://youglish.com/"
-    }
+    { "area": "Inglês", "tema": "Listening diário", "nome": "BBC Learning English", "metodo": "20 min/dia: shadowing + anotar 5 frases úteis.", "link": "https://www.bbc.co.uk/learningenglish" },
+    { "area": "Inglês", "tema": "Pronúncia em contexto", "nome": "YouGlish", "metodo": "Escolha 10 termos/semana e repita 10x (com pausa).", "link": "https://youglish.com/" },
+    { "area": "Inglês", "tema": "Vocabulário (SRS)", "nome": "Anki", "metodo": "10 palavras/dia. Cartões com frase real do seu trabalho.", "link": "https://apps.ankiweb.net/" },
+    { "area": "Inglês", "tema": "Speaking técnico", "nome": "Método: 2–1–1", "metodo": "2 min explica / 1 min corrige / 1 min repete melhor. Grave 30s.", "link": "https://en.wikipedia.org/wiki/Shadowing_(language_learning)" },
+    { "area": "Inglês", "tema": "Inglês técnico (SRE)", "nome": "Google SRE Book (online)", "metodo": "1 seção/semana + 5 bullets + explicar em voz alta.", "link": "https://sre.google/books/" },
+  
+    { "area": "Alemão", "tema": "A1–A2 (base)", "nome": "DW – Learn German", "metodo": "1 lição curta + 10 palavras (Anki).", "link": "https://learngerman.dw.com/" },
+    { "area": "Alemão", "tema": "Pronúncia", "nome": "Forvo (DE)", "metodo": "Ouça 10 palavras e repita 5x cada.", "link": "https://forvo.com/languages/de/" },
+    { "area": "Alemão", "tema": "Gramática rápida", "nome": "Deutsche Welle – Grammar", "metodo": "1 regra/semana + 5 exemplos seus.", "link": "https://learngerman.dw.com/en/grammar" },
+  
+    { "area": "Tech", "tema": "Observabilidade (base)", "nome": "OpenTelemetry Docs", "metodo": "Entender traces/logs/metrics + 1 exemplo/semana.", "link": "https://opentelemetry.io/docs/" },
+    { "area": "Tech", "tema": "Métricas", "nome": "Prometheus Overview", "metodo": "Criar 3 queries PromQL do seu ambiente por semana.", "link": "https://prometheus.io/docs/introduction/overview/" },
+    { "area": "Tech", "tema": "Dashboards", "nome": "Grafana Docs", "metodo": "1 dashboard/semana: painel + variável + alerta simples.", "link": "https://grafana.com/docs/" },
+    { "area": "Tech", "tema": "Logs", "nome": "Grafana Loki Docs", "metodo": "1 query LogQL/semana + padronizar labels.", "link": "https://grafana.com/docs/loki/latest/" },
+    { "area": "Tech", "tema": "SRE (fundamentos)", "nome": "SRE Book – SLO/SLI", "metodo": "Criar 1 SLO por semana para um serviço seu.", "link": "https://sre.google/sre-book/service-level-objectives/" },
+    { "area": "Tech", "tema": "Incidentes", "nome": "SRE Book – Incident Management", "metodo": "Simular 1 incidente/semana: timeline + ações + follow-up.", "link": "https://sre.google/sre-book/managing-incidents/" },
+  
+    { "area": "Networking", "tema": "Aprendizado prático", "nome": "Cisco DevNet Learning", "metodo": "1 lab/semana + anotar comandos e objetivo.", "link": "https://developer.cisco.com/learning/" },
+    { "area": "Networking", "tema": "Fundamentos", "nome": "Cloudflare Learning Center", "metodo": "1 tópico/semana (DNS/TLS/HTTP) e explicar em voz alta.", "link": "https://www.cloudflare.com/learning/" },
+    { "area": "Networking", "tema": "Packet analysis", "nome": "Wireshark Docs", "metodo": "1 captura/semana e identificar DNS/TCP/TLS.", "link": "https://www.wireshark.org/docs/" },
+  
+    { "area": "Windows", "tema": "Admin e hardening", "nome": "Microsoft Learn", "metodo": "1 módulo/semana + aplicar 1 config/política.", "link": "https://learn.microsoft.com/" },
+    { "area": "Linux", "tema": "CLI e serviços", "nome": "DigitalOcean Tutorials", "metodo": "1 guia/semana + replicar no seu lab.", "link": "https://www.digitalocean.com/community/tutorials" },
+  
+    { "area": "DevOps", "tema": "CI/CD", "nome": "GitHub Actions Docs", "metodo": "1 workflow/semana (build + deploy).", "link": "https://docs.github.com/actions" },
+    { "area": "DevOps", "tema": "IaC", "nome": "Terraform Docs", "metodo": "1 recurso por semana + state + plan/apply.", "link": "https://developer.hashicorp.com/terraform/docs" },
+  
+    { "area": "Segurança", "tema": "Fundamentos", "nome": "OWASP Top 10", "metodo": "1 risco/semana: exemplo + mitigação no seu contexto.", "link": "https://owasp.org/www-project-top-ten/" },
+    { "area": "Segurança", "tema": "Framework", "nome": "NIST CSF", "metodo": "Mapear 1 controle/semana para sua rotina.", "link": "https://www.nist.gov/cyberframework" },
+  
+    { "area": "Automação", "tema": "Workflows", "nome": "n8n Docs", "metodo": "1 fluxo real/semana e versionar no Git.", "link": "https://docs.n8n.io/" },
+    { "area": "Automação", "tema": "Grafana API", "nome": "Grafana HTTP API", "metodo": "Automatizar 1 coisa/semana (datasource/dashboard).", "link": "https://grafana.com/docs/grafana/latest/developers/http_api/" },
+  
+    { "area": "IA", "tema": "Fundamentos (visão)", "nome": "AI for Everyone – DeepLearning.AI", "metodo": "1 aula/semana + 5 insights aplicáveis.", "link": "https://www.deeplearning.ai/courses/ai-for-everyone/" },
+    { "area": "IA", "tema": "Conceitos claros", "nome": "StatQuest (YouTube)", "metodo": "1 vídeo/semana + resumo em 10 linhas.", "link": "https://www.youtube.com/c/joshstarmer" },
+    { "area": "IA", "tema": "API (prática)", "nome": "OpenAI API Quickstart", "metodo": "1 script/semana (Node/Python) com output útil.", "link": "https://platform.openai.com/docs/quickstart" },
+    { "area": "IA", "tema": "RAG / LLM Apps", "nome": "LangChain Docs", "metodo": "1 guia/semana: loaders + retriever + prompt.", "link": "https://docs.langchain.com/" },
+  
+    { "area": "Arquitetura", "tema": "System Design", "nome": "System Design Primer", "metodo": "1 tópico/semana + desenhar 1 arquitetura.", "link": "https://github.com/donnemartin/system-design-primer" },
+  
+    { "area": "Livros", "tema": "Infra/DevOps (visão)", "nome": "The Phoenix Project", "metodo": "Estudo de caso + paralelos com seu ambiente.", "link": "https://www.goodreads.com/book/show/17255186-the-phoenix-project" },
+    { "area": "Livros", "tema": "Distribuídos", "nome": "Designing Data-Intensive Applications", "metodo": "Leitura lenta (10–15 págs/sem) + 5 bullets.", "link": "https://dataintensive.net/" },
+    { "area": "Livros", "tema": "Operação em escala", "nome": "The Practice of Cloud System Administration", "metodo": "1 capítulo/semana + aplicar 1 prática.", "link": "https://www.goodreads.com/book/show/13567168-the-practice-of-cloud-system-administration" },
+  
+    { "area": "Música", "tema": "Piano (rotina)", "nome": "Piano From Scratch (YouTube)", "metodo": "20 min: 10 técnica + 10 peça + gravar 30s.", "link": "https://www.youtube.com/c/PianoFromScratch" },
+    { "area": "Música", "tema": "Violino (técnica)", "nome": "Violin Lab (YouTube)", "metodo": "20 min: 10 arco/escala + 10 trecho + gravar 30s.", "link": "https://www.youtube.com/c/violinlab" }
   ]
   

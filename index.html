@@ -30,42 +30,42 @@
   <main class="container">
     <!-- ROTINA -->
     <section id="tab-rotina" class="panel">
-      <div class="card">
-        <div class="card__header">
-          <h2>Plano da semana</h2>
-          <span class="badge" id="modeBadge">NORMAL</span>
-        </div>
-
-        <textarea id="weeklyPlan" rows="2" placeholder="Uma frase. Ex: Plantão → só manutenção."></textarea>
-
-        <div class="row">
-          <div class="stat">
-            <div class="stat__label">Meta</div>
-            <div class="stat__value" id="metaValue">0</div>
+        <div class="card">
+          <div class="card__header">
+            <h2>Dashboard</h2>
+            <span class="badge" id="modeBadge">NORMAL</span>
           </div>
-          <div class="stat">
-            <div class="stat__label">Feitas</div>
-            <div class="stat__value" id="doneValue">0</div>
+      
+          <textarea id="weeklyPlan" rows="2" placeholder="Plano da semana (1 frase). Ex: Plantão → só manutenção."></textarea>
+      
+          <div class="row">
+            <div class="stat">
+              <div class="stat__label">Disponível (min)</div>
+              <div class="stat__value" id="availMin">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat__label">Usado (min)</div>
+              <div class="stat__value" id="usedMin">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat__label">Progresso</div>
+              <div class="stat__value" id="pctValue">0%</div>
+            </div>
           </div>
-          <div class="stat">
-            <div class="stat__label">%</div>
-            <div class="stat__value" id="pctValue">0%</div>
+      
+          <div class="actions">
+            <button class="btn" id="savePlanBtn">Salvar</button>
+            <button class="btn btn--ghost" id="newWeekBtn">Nova semana</button>
           </div>
         </div>
-
-        <div class="actions">
-          <button class="btn" id="savePlanBtn">Salvar plano</button>
-          <button class="btn btn--ghost" id="newWeekBtn">Nova semana (zerar)</button>
+      
+        <div class="card">
+          <div class="card__header">
+            <h2>Atividades (timer)</h2>
+            <small>Start/Stop registra tempo. Progresso capado em 100%.</small>
+          </div>
+          <div id="checklist" class="list"></div>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="card__header">
-          <h2>Checklist</h2>
-          <small>Toque para marcar.</small>
-        </div>
-        <div id="checklist" class="list"></div>
-      </div>
     </section>
 
     <!-- RECURSOS -->
@@ -101,20 +101,36 @@
         </label>
 
         <label class="field">
+            <span>Início do ciclo (segunda-feira) — para calcular a semana por data</span>
+            <input id="cycleStartInput" type="date" />
+        </label>
+          
+        <label class="field">
+            <span>Marcar plantão por data (calendário)</span>
+            <div class="filters" style="margin:0;">
+              <input id="oncallDateInput" type="date" />
+              <button class="btn btn--ghost" id="addOncallDateBtn" type="button">Adicionar</button>
+            </div>
+            <small class="hint">Selecione uma data de plantão e ele adiciona a semana correspondente na lista.</small>
+        </label>
+          
+
+        <label class="field">
           <span>Semanas de plantão (ex: 4,8,12)</span>
           <input id="oncallInput" type="text" />
         </label>
 
         <div class="grid2">
-          <label class="field">
-            <span>Meta normal (sessões)</span>
-            <input id="goalNormalInput" type="number" min="0" />
-          </label>
-          <label class="field">
-            <span>Meta plantão (sessões)</span>
-            <input id="goalOncallInput" type="number" min="0" />
-          </label>
+            <label class="field">
+              <span>Disponível Normal (min/semana)</span>
+              <input id="availNormalInput" type="number" min="0" />
+            </label>
+            <label class="field">
+              <span>Disponível Plantão (min/semana)</span>
+              <input id="availOncallInput" type="number" min="0" />
+            </label>
         </div>
+          
 
         <div class="actions">
           <button class="btn" id="saveConfigBtn">Salvar config</button>
