@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotina</title>
+
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__title">
+      <div class="dot"></div>
+      <div>
+        <div class="title">Rotina</div>
+        <div class="subtitle" id="weekLabel">Semana</div>
+      </div>
+    </div>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="rotina">Rotina</button>
+      <button class="tab" data-tab="recursos">Recursos</button>
+      <button class="tab" data-tab="config">Config</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- ROTINA -->
+    <section id="tab-rotina" class="panel">
+      <div class="card">
+        <div class="card__header">
+          <h2>Plano da semana</h2>
+          <span class="badge" id="modeBadge">NORMAL</span>
+        </div>
+
+        <textarea id="weeklyPlan" rows="2" placeholder="Uma frase. Ex: Plantão → só manutenção."></textarea>
+
+        <div class="row">
+          <div class="stat">
+            <div class="stat__label">Meta</div>
+            <div class="stat__value" id="metaValue">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">Feitas</div>
+            <div class="stat__value" id="doneValue">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">%</div>
+            <div class="stat__value" id="pctValue">0%</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="savePlanBtn">Salvar plano</button>
+          <button class="btn btn--ghost" id="newWeekBtn">Nova semana (zerar)</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header">
+          <h2>Checklist</h2>
+          <small>Toque para marcar.</small>
+        </div>
+        <div id="checklist" class="list"></div>
+      </div>
+    </section>
+
+    <!-- RECURSOS -->
+    <section id="tab-recursos" class="panel hidden">
+      <div class="card">
+        <div class="card__header">
+          <h2>Recursos</h2>
+          <small>Links + métodos por tema.</small>
+        </div>
+
+        <div class="filters">
+          <input id="searchInput" type="search" placeholder="Buscar (tema, livro, método)..." />
+          <select id="areaSelect">
+            <option value="all">Todas as áreas</option>
+          </select>
+        </div>
+
+        <div id="resources" class="resources"></div>
+      </div>
+    </section>
+
+    <!-- CONFIG -->
+    <section id="tab-config" class="panel hidden">
+      <div class="card">
+        <div class="card__header">
+          <h2>Config</h2>
+          <small>Plantão automático + metas.</small>
+        </div>
+
+        <label class="field">
+          <span>Semana atual (1–12)</span>
+          <input id="weekInput" type="number" min="1" max="12" />
+        </label>
+
+        <label class="field">
+          <span>Semanas de plantão (ex: 4,8,12)</span>
+          <input id="oncallInput" type="text" />
+        </label>
+
+        <div class="grid2">
+          <label class="field">
+            <span>Meta normal (sessões)</span>
+            <input id="goalNormalInput" type="number" min="0" />
+          </label>
+          <label class="field">
+            <span>Meta plantão (sessões)</span>
+            <input id="goalOncallInput" type="number" min="0" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="saveConfigBtn">Salvar config</button>
+          <button class="btn btn--ghost" id="exportBtn">Exportar dados</button>
+          <button class="btn btn--ghost" id="importBtn">Importar dados</button>
+        </div>
+
+        <p class="hint">
+          Dica: Export/Import gera um JSON para você copiar/colar e migrar do celular para o PC.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js");
+    }
+  </script>
+</body>
+</html>

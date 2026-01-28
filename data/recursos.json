@@ -1,0 +1,24 @@
+[
+    {
+      "area": "Tech",
+      "tema": "SRE (fundamentos)",
+      "nome": "Google SRE Book (online)",
+      "metodo": "1 capítulo/semana + 1 resumo de postmortem.",
+      "link": "https://sre.google/books/"
+    },
+    {
+      "area": "Tech",
+      "tema": "Observabilidade",
+      "nome": "Prometheus Overview",
+      "metodo": "Ler + criar 3 queries PromQL.",
+      "link": "https://prometheus.io/docs/introduction/overview/"
+    },
+    {
+      "area": "Inglês",
+      "tema": "Pronúncia em contexto",
+      "nome": "YouGlish",
+      "metodo": "Buscar 10 termos/semana e repetir 10x.",
+      "link": "https://youglish.com/"
+    }
+  ]
+  
