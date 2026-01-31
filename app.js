@@ -203,11 +203,14 @@ function renderChecklist(){
 
   ACTIVITIES.forEach((name)=>{
     const t = ensureTimer(state, name);
+    const avail = availableMinutes(state);
     const now = Date.now();
 
     const liveSeconds = t.running && t.startedAt
       ? (t.seconds + Math.floor((now - t.startedAt)/1000))
       : (t.seconds || 0);
+    const pct = avail > 0 ? Math.min((liveSeconds / 60) / avail, 1) : 0;
+    const pctLabel = Math.round(pct * 100);
 
     const div = document.createElement("div");
     div.className = "item" + (t.running ? " running" : "");
@@ -215,6 +218,9 @@ function renderChecklist(){
       <div class="toggle"></div>
       <div style="flex:1;">
         <h3>${name}</h3>
+        <div class="progress" role="progressbar" aria-label="Progresso semanal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pctLabel}">
+          <div class="progress__bar" style="width:${pctLabel}%"></div>
+        </div>
         <p>${ACTIVITY_HINTS[name]}</p>
         <div class="method" style="margin-top:8px; color: var(--muted); font-size: 12px;">
           Tempo: <strong style="color: var(--text);">${formatMMSS(liveSeconds)}</strong>
