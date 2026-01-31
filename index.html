@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -25,26 +25,44 @@
     </div>
 
     <nav class="tabs">
-      <button class="tab active" data-tab="rotina">Rotina</button>
+      <button class="tab active" data-tab="home">Home</button>
+      <button class="tab" data-tab="atividades">Atividades</button>
       <button class="tab" data-tab="recursos">Recursos</button>
       <button class="tab" data-tab="config">Config</button>
     </nav>
   </header>
 
   <main class="container">
-    <!-- ROTINA -->
-    <section id="tab-rotina" class="panel">
-        <div class="card">
-          <div class="card__header">
-            <h2>Dashboard</h2>
-            <span class="badge" id="modeBadge">NORMAL</span>
+    <!-- HOME -->
+    <section id="tab-home" class="panel">
+      <div class="card">
+        <div class="card__header">
+          <h2>Dashboard</h2>
+          <span class="badge" id="modeBadge">NORMAL</span>
+        </div>
+
+        <textarea id="weeklyPlan" rows="2" placeholder="Plano da semana (1 frase). Ex: PlantÃ£o â†’ sÃ³ manutenÃ§Ã£o."></textarea>
+
+        <div class="dash">
+          <div class="dash__hero">
+            <div class="dash__label">Progresso semanal</div>
+            <div class="dash__pct" id="pctValue">0%</div>
+            <div class="progress progress--thick">
+              <div class="progress__bar" id="weekProgressBar" style="width:0%"></div>
+            </div>
+            <div class="dash__meta">
+              <span><strong id="usedMinHero">0</strong> min usados</span>
+              <span><strong id="remainMin">0</strong> min restantes</span>
+            </div>
+            <div class="dash__rank">
+              <span class="tag">Status</span>
+              <span id="rankLabel">Iniciante</span>
+            </div>
           </div>
-      
-          <textarea id="weeklyPlan" rows="2" placeholder="Plano da semana (1 frase). Ex: Plantão → só manutenção."></textarea>
-      
+
           <div class="row">
             <div class="stat">
-              <div class="stat__label">Disponível (min)</div>
+              <div class="stat__label">DisponÃ­vel (min)</div>
               <div class="stat__value" id="availMin">0</div>
             </div>
             <div class="stat">
@@ -52,24 +70,36 @@
               <div class="stat__value" id="usedMin">0</div>
             </div>
             <div class="stat">
-              <div class="stat__label">Progresso</div>
-              <div class="stat__value" id="pctValue">0%</div>
+              <div class="stat__label">XP</div>
+              <div class="stat__value" id="xpValue">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat__label">Nivel</div>
+              <div class="stat__value" id="levelValue">1</div>
+            </div>
+            <div class="stat">
+              <div class="stat__label">Atividades feitas</div>
+              <div class="stat__value" id="activityCount">0</div>
             </div>
           </div>
-      
-          <div class="actions">
-            <button class="btn" id="savePlanBtn">Salvar</button>
-            <button class="btn btn--ghost" id="newWeekBtn">Nova semana</button>
-          </div>
         </div>
-      
-        <div class="card">
-          <div class="card__header">
-            <h2>Atividades (timer)</h2>
-            <small>Start/Stop registra tempo. Progresso capado em 100%.</small>
-          </div>
-          <div id="checklist" class="list"></div>
+
+        <div class="actions">
+          <button class="btn" id="savePlanBtn">Salvar</button>
+          <button class="btn btn--ghost" id="newWeekBtn">Nova semana</button>
         </div>
+      </div>
+    </section>
+
+    <!-- ATIVIDADES -->
+    <section id="tab-atividades" class="panel hidden">
+      <div class="card">
+        <div class="card__header">
+          <h2>Atividades (timer)</h2>
+          <small>Start/Stop registra tempo. Progresso capado em 100%.</small>
+        </div>
+        <div id="checklist" class="list"></div>
+      </div>
     </section>
 
     <!-- RECURSOS -->
@@ -77,13 +107,13 @@
       <div class="card">
         <div class="card__header">
           <h2>Recursos</h2>
-          <small>Links + métodos por tema.</small>
+          <small>Links + mÃ©todos por tema.</small>
         </div>
 
         <div class="filters">
-          <input id="searchInput" type="search" placeholder="Buscar (tema, livro, método)..." />
+          <input id="searchInput" type="search" placeholder="Buscar (tema, livro, mÃ©todo)..." />
           <select id="areaSelect">
-            <option value="all">Todas as áreas</option>
+            <option value="all">Todas as Ã¡reas</option>
           </select>
         </div>
 
@@ -96,45 +126,43 @@
       <div class="card">
         <div class="card__header">
           <h2>Config</h2>
-          <small>Plantão automático + metas.</small>
+          <small>PlantÃ£o automÃ¡tico + metas.</small>
         </div>
 
         <label class="field">
-          <span>Semana atual (1–12)</span>
+          <span>Semana atual (1â€“12)</span>
           <input id="weekInput" type="number" min="1" max="12" />
         </label>
 
         <label class="field">
-            <span>Início do ciclo (segunda-feira) — para calcular a semana por data</span>
+            <span>InÃ­cio do ciclo (segunda-feira) â€” para calcular a semana por data</span>
             <input id="cycleStartInput" type="date" />
         </label>
-          
+
         <label class="field">
-            <span>Marcar plantão por data (calendário)</span>
+            <span>Marcar plantÃ£o por data (calendÃ¡rio)</span>
             <div class="filters" style="margin:0;">
               <input id="oncallDateInput" type="date" />
               <button class="btn btn--ghost" id="addOncallDateBtn" type="button">Adicionar</button>
             </div>
-            <small class="hint">Selecione uma data de plantão e ele adiciona a semana correspondente na lista.</small>
+            <small class="hint">Selecione uma data de plantÃ£o e ele adiciona a semana correspondente na lista.</small>
         </label>
-          
 
         <label class="field">
-          <span>Semanas de plantão (ex: 4,8,12)</span>
+          <span>Semanas de plantÃ£o (ex: 4,8,12)</span>
           <input id="oncallInput" type="text" />
         </label>
 
         <div class="grid2">
             <label class="field">
-              <span>Disponível Normal (min/semana)</span>
+              <span>DisponÃ­vel Normal (min/semana)</span>
               <input id="availNormalInput" type="number" min="0" />
             </label>
             <label class="field">
-              <span>Disponível Plantão (min/semana)</span>
+              <span>DisponÃ­vel PlantÃ£o (min/semana)</span>
               <input id="availOncallInput" type="number" min="0" />
             </label>
         </div>
-          
 
         <div class="actions">
           <button class="btn" id="saveConfigBtn">Salvar config</button>
@@ -143,7 +171,7 @@
         </div>
 
         <p class="hint">
-          Dica: Export/Import gera um JSON para você copiar/colar e migrar do celular para o PC.
+          Dica: Export/Import gera um JSON para vocÃª copiar/colar e migrar do celular para o PC.
         </p>
       </div>
     </section>

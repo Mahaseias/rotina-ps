@@ -168,6 +168,13 @@ const weeklyPlan = document.getElementById("weeklyPlan");
 const checklistEl = document.getElementById("checklist");
 const availMinEl = document.getElementById("availMin");
 const usedMinEl = document.getElementById("usedMin");
+const usedMinHeroEl = document.getElementById("usedMinHero");
+const remainMinEl = document.getElementById("remainMin");
+const weekProgressBarEl = document.getElementById("weekProgressBar");
+const xpValueEl = document.getElementById("xpValue");
+const levelValueEl = document.getElementById("levelValue");
+const activityCountEl = document.getElementById("activityCount");
+const rankLabelEl = document.getElementById("rankLabel");
 
 // config inputs
 const weekInput = document.getElementById("weekInput");
@@ -188,10 +195,38 @@ function renderStats(){
   const avail = availableMinutes(state);
   const used = usedMinutes(state);
   const pct = pctCapped(state);
+  const remaining = Math.max(avail - used, 0);
+  const xp = used * 10;
+  const level = Math.floor(used / 120) + 1;
+  const now = Date.now();
+  const activityDone = Object.values(state.timers || {}).filter(t=>{
+    if(!t) return false;
+    let sec = t.seconds || 0;
+    if(t.running && t.startedAt){
+      sec += Math.floor((now - t.startedAt)/1000);
+    }
+    return sec > 0;
+  }).length;
+  const rank = pct >= 1
+    ? "Chefao"
+    : pct >= 0.75
+      ? "No fluxo"
+      : pct >= 0.5
+        ? "Focado"
+        : pct >= 0.25
+          ? "Constante"
+          : "Iniciante";
 
   availMinEl.textContent = String(avail);
   usedMinEl.textContent = String(used);
   pctValue.textContent = `${Math.round(pct * 100)}%`;
+  if(usedMinHeroEl) usedMinHeroEl.textContent = String(used);
+  if(remainMinEl) remainMinEl.textContent = String(remaining);
+  if(weekProgressBarEl) weekProgressBarEl.style.width = `${Math.round(pct * 100)}%`;
+  if(xpValueEl) xpValueEl.textContent = String(xp);
+  if(levelValueEl) levelValueEl.textContent = String(level);
+  if(activityCountEl) activityCountEl.textContent = String(activityDone);
+  if(rankLabelEl) rankLabelEl.textContent = rank;
 }
 
 function renderPlan(){
